@@ -11,7 +11,7 @@ def home_page(request):
 
 
 def post(request):
-    if request.user.is_superuser:
+    if request.user.is_staff:
         return render(request,'recruitment/post.html')
     
     else:
@@ -36,7 +36,7 @@ def non_teaching(request):
     return render(request,'recruitment/non_teaching_posts.html')
 
 def create(request):
-    if request.user.is_superuser:
+    if request.user.is_staff:
         return render(request,'recruitment/create.html')
     else:
         return redirect('/recruitment')
